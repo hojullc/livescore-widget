@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>livescore-widget Demo</title>
+<style>
+body { font-family: system-ui, sans-serif; background: #0d1117; color: #e6edf3; padding: 40px 24px; max-width: 960px; margin: 0 auto; }
+h1 { color: #58a6ff; font-size: 2rem; margin-bottom: 8px; }
+.subtitle { color: #8b949e; margin-bottom: 48px; }
+h2 { font-size: 1rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+.demo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px; }
+@media(max-width:640px) { .demo-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<h1>livescore-widget</h1>
+<p class="subtitle">Embeddable scoreboard widget — click the buttons to update scores in real time.</p>
+
+<h2>Basketball (Dark Theme)</h2>
+<div class="demo-row">
+  <div id="demo-basketball"></div>
+</div>
+
+<h2>Soccer (Light Theme)</h2>
+<div class="demo-row">
+  <div id="demo-soccer"></div>
+</div>
+
+<h2>Custom Colors</h2>
+<div class="demo-row">
+  <div id="demo-custom"></div>
+</div>
+
+<script src="../src/livescore-widget.js"></script>
+<script>
+// Basketball demo
+LiveScore.demo('#demo-basketball', {
+  sport: 'basketball',
+  teamA: { name: 'Lakers', color: '#552583', score: 0 },
+  teamB: { name: 'Celtics', color: '#007A33', score: 0 },
+  timeRemaining: '12:00',
+  theme: 'dark'
+});
+
+// Soccer demo
+LiveScore.demo('#demo-soccer', {
+  sport: 'soccer',
+  teamA: { name: 'Real Madrid', color: '#00529F', score: 0 },
+  teamB: { name: 'Barcelona', color: '#A50044', score: 0 },
+  theme: 'light'
+});
+
+// Custom colors
+LiveScore.demo('#demo-custom', {
+  sport: 'volleyball',
+  teamA: { name: 'Team Alpha', color: '#635bff', score: 0 },
+  teamB: { name: 'Team Beta', color: '#00d4aa', score: 0 },
+  theme: 'dark'
+});
+</script>
+</body>
+</html>
